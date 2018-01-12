@@ -1,4 +1,9 @@
-
+window.onload=function(){
+  alert("Pulsa aqu√≠");
+  document.getElementById("b").onclick=function(){
+    alert("ON");
+  }
+}
 //ENTORNO
 var g = 1.622;
 var dt = 0.016683;
@@ -8,13 +13,13 @@ var timerFuel=null;
 var y = 10; // altura inicial y0=10%, debe leerse al iniciar si queremos que tenga alturas diferentes dependiendo del dispositivo
 var v = 0;
 var c = 100;
-var a = g; //la aceleraciÛn cambia cuando se enciende el motor de a=g a a=-g (simplificado)
+var a = g; //la aceleraci√≥n cambia cuando se enciende el motor de a=g a a=-g (simplificado)
 //MARCADORES
 var velocidad = null;
 var altura = null;
 var combustible = null;
 
-//al cargar por completo la p·gina...
+//al cargar por completo la p√°gina...
 window.onload = function(){
 	
 	velocidad = document.getElementById("velocidad");
@@ -22,13 +27,13 @@ window.onload = function(){
 	combustible = document.getElementById("fuel");
 
 	
-	//definiciÛn de eventos
-	//mostrar men˙ mÛvil
+	//definici√≥n de eventos
+	//mostrar men√∫ m√≥vil
     	document.getElementById("showm").onclick = function () {
 		document.getElementsByClassName("c")[0].style.display = "block";
 		stop();
 	}
-	//ocultar men˙ mÛvil
+	//ocultar men√∫ m√≥vil
 	document.getElementById("hidem").onclick = function () {
 		document.getElementsByClassName("c")[0].style.display = "none";
 		start();
@@ -45,11 +50,11 @@ window.onload = function(){
 	document.onkeydown = motorOn;
 	document.onkeyup = motorOff;
 	
-	//Empezar a mover la nave justo despuÈs de cargar la p·gina
+	//Empezar a mover la nave justo despu√©s de cargar la p√°gina
 	start();
 }
 
-//DefiniciÛn de funciones
+//Definici√≥n de funciones
 function start(){
 	//cada intervalo de tiempo mueve la nave
 	timer=setInterval(function(){ moverNave(); }, dt*1000);
@@ -75,9 +80,9 @@ function moverNave(){
 	}
 }
 function motorOn(){
-	//el motor da aceleraciÛn a la nave
+	//el motor da aceleraci√≥n a la nave
 	a=-g;
-	//mientras el motor estÈ activado gasta combustible
+	//mientras el motor est√© activado gasta combustible
 	if (timerFuel==null)
 	timerFuel=setInterval(function(){ actualizarFuel(); }, 10);	
 }
